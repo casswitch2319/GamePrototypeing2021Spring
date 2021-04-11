@@ -1,0 +1,12 @@
+html, body{
+    margin:0;
+   
+}
+body{
+    display:flex;
+
+}
+canvas{
+    border:1px solid black;
+
+}
