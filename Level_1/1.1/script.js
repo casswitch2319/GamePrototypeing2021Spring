@@ -1,7 +1,8 @@
 var c = document.querySelector('canvas');
 var ctx = c.getContext('2d')
 
-
+var timer
+var interval = 1000/60
 
 var ball = new Ball()
 
@@ -45,7 +46,7 @@ function Ball()
 	}
 }
 
-
+timer = setInterval(animate, interval);
 
 
 	ball.draw()
