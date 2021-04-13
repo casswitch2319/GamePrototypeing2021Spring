@@ -25,23 +25,30 @@ if(ball.y>canvas.height + ball.width/2-50)
 {
     ball.y = canvas.height + ball.width/2-50
     ball.vy= -ball.vy
+    ball.color = `rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255})`;
+    ball.width= 25
 
 }
 if(ball.y  < canvas.height- 780)
 {
     ball.y = canvas.height-780
     ball.vy= -ball.vy
+    ball.color = `rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255})`;
+    ball.width=50
 }
 if(ball.x>canvas.width + ball.width/2-50)
 {
     ball.x = canvas.width + ball.width/2-50
     ball.vx= -ball.vx
-
+    ball.color = `rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255})`;
+    ball.width = 100
 }
 if(ball.x  < canvas.width-999 )
 {
     ball.x = canvas.width-999
     ball.vx= -ball.vx
+    ball.color = `rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255})`;
+    ball.width= 70
 }
 ball.draw()
 
