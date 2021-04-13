@@ -21,6 +21,7 @@ ctx.clearRect(0,0, canvas.width, canvas.height)
 
 ball.move()
 
+//bottom
 if(ball.y>canvas.height + ball.width/2-50)
 {
     ball.y = canvas.height + ball.width/2-50
@@ -29,23 +30,28 @@ if(ball.y>canvas.height + ball.width/2-50)
     ball.width= 25
 
 }
-if(ball.y  < canvas.height- 780)
+
+//top
+if(ball.y  < canvas.height- 770)
 {
-    ball.y = canvas.height-780
+    ball.y = canvas.height-750
     ball.vy= -ball.vy
     ball.color = `rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255})`;
     ball.width=50
 }
-if(ball.x>canvas.width + ball.width/2-50)
+//right
+if(ball.x>canvas.width + ball.width/2-40)
 {
     ball.x = canvas.width + ball.width/2-50
     ball.vx= -ball.vx
     ball.color = `rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255})`;
     ball.width = 100
 }
+
+//left
 if(ball.x  < canvas.width-999 )
 {
-    ball.x = canvas.width-999
+    ball.x = canvas.width-950
     ball.vx= -ball.vx
     ball.color = `rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255})`;
     ball.width= 70
