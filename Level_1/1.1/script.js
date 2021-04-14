@@ -46,16 +46,8 @@ function Ball()
 	}
 }
 
-//timer = setInterval(animate, interval);
+
 
 
 	ball.draw()
-       // context.clearRect(0,0,canvas.width, canvas.height);
-    //ball.move();
 
-    
-    //if(ball.x > canvas.width + ball.width/2)
-  
-     // ball.x = -ball.width/2
-  
-//ball.draw()
