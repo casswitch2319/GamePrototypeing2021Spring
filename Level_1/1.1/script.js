@@ -46,7 +46,7 @@ function Ball()
 	}
 }
 
-timer = setInterval(animate, interval);
+//timer = setInterval(animate, interval);
 
 
 	ball.draw()

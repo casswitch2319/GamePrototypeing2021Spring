@@ -32,9 +32,9 @@ if(ball.y>canvas.height + ball.width/2-50)
 }
 
 //top
-if(ball.y  < canvas.height- 770)
+if(ball.y  < canvas.height- 780)
 {
-    ball.y = canvas.height-750
+    ball.y = canvas.height-780
     ball.vy= -ball.vy
     ball.color = `rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255})`;
     ball.width=50

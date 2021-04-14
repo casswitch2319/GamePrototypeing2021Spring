@@ -21,7 +21,7 @@ function Ball() {
     this.vy = 0
 
     //gravity
-    this.gravity=0
+   // this.gravity=0
 
    //draws to canvas
     this.draw = function () {
