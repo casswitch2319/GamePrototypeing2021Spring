@@ -78,8 +78,10 @@ paddle = new GameObject()
     ball.vx = 3;
     ball.vy = 3;
 //paddle location
-    paddle.x= 2
+    paddle.x= paddle.width/2
     paddle.y= c.height/2
+    paddle.width = 10
+    paddle.height = 150
   
 
     timer = setInterval(animate, interval);
@@ -92,36 +94,48 @@ ctx.clearRect(0,0, canvas.width, canvas.height)
 ball.moveCircle()
 paddle.moveRect()
 
-
+//boundaries for ball
 //bottom
-if(ball.y>canvas.height + ball.width/2-50)
+if(ball.y>canvas.height-ball.height/2)
 {
-    ball.y = canvas.height + ball.width/2-50
+    ball.y = canvas.height -ball.height/2
     ball.vy= -ball.vy
 }
 
 //top
-if(ball.y  < canvas.height- 780)
+if(ball.y  <ball.height/2)
 {
-    ball.y = canvas.height-780
+    ball.y = ball.height/2
     ball.vy= -ball.vy
 }
-//right
-if(ball.x>canvas.width + ball.width/2-40)
+//left
+if(ball.x< ball.width/2)
 {
-    ball.x = canvas.width + ball.width/2-50
+    ball.x = ball.width/2
     ball.vx= -ball.vx
 }
 
-//left
-if(ball.x  < canvas.width-999 )
+//right
+if(ball.x  > canvas.width - ball.width/2 )
 {
-    ball.x = canvas.width-999
+    ball.x = canvas.width - ball.width/2
     ball.vx= -ball.vx
 }
+
+//boundaries for paddle
+if(paddle.y>canvas.height - paddle.height/2){
+    paddle.y=canvas.height- paddle.height/2
+
+
+}
+if(paddle.y<paddle.height/2){
+   paddle.y = paddle.height/2
+} 
+
+
 ball.drawCircle()
 paddle.drawRect()
-
+console.log(paddle.y)
 
 
 }
