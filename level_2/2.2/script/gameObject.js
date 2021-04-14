@@ -56,22 +56,22 @@ function GameObject() {
 	if(d)
 	{
 		console.log("Moving Right");
-		paddle.x += 2;
+		paddle.x += 3;
 	}
 	if(a)
 	{
 		console.log("Moving Left");
-		paddle.x += -2;
+		paddle.x += -3;
 	}
 	if(w)
 	{
 		console.log("Moving Up");
-		paddle.y += -2;
+		paddle.y += -3;
 	}
 	if(s)
 	{
 		console.log("Moving Down");
-		paddle.y += 2;
+		paddle.y += 3;
 	}
        
        
