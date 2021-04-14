@@ -14,14 +14,14 @@ function press(e)
 	//---This logs key codes into the browser's console.
 	//console.log("Pressed" + e.keyCode);
 	
-	if(e.keyCode == 65)
+	/*if(e.keyCode == 65)
 	{
 		a = true;
 	}
 	if(e.keyCode == 68)
 	{
 		d = true;
-	}
+	}*/
 	if(e.keyCode == 87)
 	{
 		w = true;
@@ -37,14 +37,14 @@ function release(e)
 	//---This logs key codes into the browser's console.
 	//console.log("Released" + e.keyCode);
 	
-	if(e.keyCode == 65)
+	/*if(e.keyCode == 65)
 	{
 		a = false;
 	}
 	if(e.keyCode == 68)
 	{
 		d = false;
-	}
+	}*/
 	if(e.keyCode == 87)
 	{
 		w = false;
