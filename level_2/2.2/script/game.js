@@ -79,7 +79,7 @@ paddle = new GameObject()
     ball.vx = 3;
     ball.vy = 3;
 
-    paddle.x= paddle.width/2
+    paddle.x= 2
     paddle.y= c.height/2
   
 
