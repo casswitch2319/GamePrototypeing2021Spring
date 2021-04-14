@@ -23,7 +23,7 @@ function GameObject() {
     //gravity
    // this.gravity=0
 
-   //draws to canvas
+   //draws circle to canvas
     this.drawCircle = function () {
         ctx.save();
         ctx.fillStyle = "purple";
@@ -35,13 +35,13 @@ function GameObject() {
         ctx.restore();
 
     }
-
+//draws rectangle
     this.drawRect = function (){
 
         ctx.save();
         ctx.fillStyle = this.color;
         ctx.translate(this.x, this.y);
-        ctx.fillRect(0,0,20,100)
+        ctx.fillRect(0,0,20,100);
         ctx.restore();
         
     }
