@@ -20,21 +20,26 @@ var paddle
 ball = new GameObject()
 paddle = new GameObject()
 
+ball.leftSide = function(){return ball.x - ball.width/2};
+ball.rightSide = function(){return ball.x + ball.width/2};
+ball.topSide = function(){return ball.y - ball.height/2};
+ball.bottomSide = function(){return ball.y + ball.height/2};
+
+paddle.leftSide = function(){return paddle.x - paddle.width/2};
+paddle.rightSide = function(){return paddle.x + paddle.width/2};
+paddle.topSide = function(){return paddle.y - paddle.height/2};
+paddle.bottomSide = function(){return paddle.y + paddle.height/2};
+
 //velocity
-    ball.vx = 3;
-    ball.vy = 3;
+    ball.vx = 10;
+    ball.vy = 0;
 //paddle location
     paddle.x= paddle.width/2
     paddle.y= c.height/2
     paddle.width = 10
     paddle.height = 150
     
-    //bounding box 
- //   ball.leftSide = function(){return ball.x - ball.width/2};
-   // ball.rightSide = function(){return ball.x + ball.width/2};
-    //ball.topSide = function(){return ball.y - ball.height/2};
-    //ball.bottomSide = function(){return ball.y + ball.height/2};
-  
+ 
 
     timer = setInterval(animate, interval);
 
@@ -63,12 +68,12 @@ if(ball.y  <ball.height/2)
     ball.topSide = function(){return ball.y - ball.height/2};
 }
 //left
-if(ball.x< ball.width/2)
+/*if(ball.x< ball.width/2)
 {
     ball.x = ball.width/2
     ball.vx= -ball.vx
     ball.leftSide = function(){return ball.x - ball.width/2};
-}
+}*/
 
 //right
 if(ball.x  > canvas.width - ball.width/2 )
@@ -119,6 +124,7 @@ if(paddle.y<paddle.height/2){
          {
              s = true;
          }
+
      }
      
      function release(e)
@@ -144,7 +150,25 @@ if(paddle.y<paddle.height/2){
          }
      }
      
+     function hitTestObject(ball, paddle)
+     {
+      if( ball.leftSide() < paddle.rightSide() &&
+         ball.rightSide() > paddle.leftSide() &&
+         ball.topSide() < paddle.bottomSide() &&
+         ball.bottomSide() > paddle.topSide() )
+         {
+           return true;
+         }
+      return false;
+     }
+     if(hitTestObject(ball, paddle))
+     {
+       //paddle.color = "yellow"
+    
+       ball.vx = -ball.vx
 
+
+     }
 
 ball.drawCircle()
 paddle.drawRect()
