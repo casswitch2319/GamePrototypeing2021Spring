@@ -108,7 +108,19 @@ function animate() {
     ctx.fillText('-', canvas.width/2, 60)
     ctx.fillText(p2Wins, canvas.width/2+21, 60)
 
- 
+    //draw line 
+    ctx.save();
+    ctx.strokeStyle = "#89D6F7";
+    ctx.beginPath()
+    ctx.moveTo(canvas.width/2,0)//center of canvas x, //top of canvas y);
+    ctx.lineTo(canvas.width/2,800)//center of canvas x, //bottom of canvas y);
+    ctx.closePath()
+    ctx.lineWidth = 5
+    ctx.stroke()
+    ctx.restore()
+
+    
+
 
 	if(w)
 	{
