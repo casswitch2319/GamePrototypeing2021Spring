@@ -7,8 +7,7 @@ var paddle
 var paddle2
 var p1Wins = 0;
 var p2Wins = 0;
-
-
+var img = document.getElementById("ric");
 //var gravity = .05
 //var gravitySpeed=.05
 
@@ -40,7 +39,7 @@ paddle.width = 10
 paddle.height = 150
 
 //paddle 2 location
-paddle2.x = c.width - paddle2.width 
+paddle2.x = c.width - paddle2.width
 paddle2.y = c.height / 2
 paddle2.width = 10
 paddle2.height = 150
@@ -65,10 +64,10 @@ function press(e) {
     if (e.keyCode == 83) {
         s = true;
     }
-    if(e.keyCode == 38){
+    if (e.keyCode == 38) {
         up = true;
     }
-    if(e.keyCode == 40){
+    if (e.keyCode == 40) {
         down = true;
     }
 
@@ -85,11 +84,11 @@ function release(e) {
     if (e.keyCode == 83) {
         s = false;
     }
-   
-    if(e.keyCode == 38){
+
+    if (e.keyCode == 38) {
         up = false;
     }
-    if(e.keyCode == 40){
+    if (e.keyCode == 40) {
         down = false;
     }
 
@@ -105,60 +104,56 @@ function animate() {
     ctx.fillStyle = "black"
     ctx.font = "20px Arial"
     ctx.textAlign = "center"
-    ctx.fillText("Player 1 | Player 2", canvas.width/2, 40)
-    ctx.fillText(p1Wins, canvas.width/2-21, 60)
-    ctx.fillText('-', canvas.width/2, 60)
-    ctx.fillText(p2Wins, canvas.width/2+21, 60)
+    ctx.fillText("Player 1 | Player 2", canvas.width / 2, 40)
+    ctx.fillText(p1Wins, canvas.width / 2 - 21, 60)
+    ctx.fillText('-', canvas.width / 2, 60)
+    ctx.fillText(p2Wins, canvas.width / 2 + 21, 60)
 
     //draw line 
     ctx.save();
     ctx.strokeStyle = "#89D6F7";
     ctx.beginPath()
-    ctx.moveTo(canvas.width/2,0)//center of canvas x, //top of canvas y);
-    ctx.lineTo(canvas.width/2,800)//center of canvas x, //bottom of canvas y);
+    ctx.moveTo(canvas.width / 2, 0)//center of canvas x, //top of canvas y);
+    ctx.lineTo(canvas.width / 2, 800)//center of canvas x, //bottom of canvas y);
     ctx.closePath()
     ctx.lineWidth = 5
     ctx.stroke()
     ctx.restore()
 
-    
-   
+    //draw rick
+    ctx.drawImage(img, ball.x - ball.width / 2 , ball.y - ball.height / 2 , ball.width , ball.height );
 
 
 
-	if(w)
-	{
-		console.log("Moving Up");
-		paddle.y += -5;
-	}
-	if(s)
-	{
-		console.log("Moving Down");
-		paddle.y += 5;
-	}
+    if (w) {
+        console.log("Moving Up");
+        paddle.y += -5;
+    }
+    if (s) {
+        console.log("Moving Down");
+        paddle.y += 5;
+    }
 
-    if(up)
-	{
-		console.log("Moving Up");
-		paddle2.y += -5;
-	}
-	if(down)
-	{
-		console.log("Moving Down");
-		paddle2.y += 5;
-	}
+    if (up) {
+        console.log("Moving Up");
+        paddle2.y += -5;
+    }
+    if (down) {
+        console.log("Moving Down");
+        paddle2.y += 5;
+    }
 
 
 
     ball.moveCircle()
-  
+
 
     //boundaries for ball
     //bottom
     if (ball.y > canvas.height - ball.height / 2) {
         ball.y = canvas.height - ball.height / 2
         ball.vy = -ball.vy
-       // ball.bottomSide = function () { return ball.y + ball.height / 2 };
+        // ball.bottomSide = function () { return ball.y + ball.height / 2 };
     }
 
     //top
@@ -168,24 +163,24 @@ function animate() {
         //ball.topSide = function () { return ball.y - ball.height / 2 };
     }
     //left
-    if (ball.x < -ball.width ) {
+    if (ball.x < -ball.width) {
         ball.x = canvas.width / 2
         ball.y = canvas.height / 2
         ball.vx *= -1
-        p2Wins ++
-       // ball.leftSide = function () { return ball.x - ball.width / 2 };
+        p2Wins++
+        // ball.leftSide = function () { return ball.x - ball.width / 2 };
     }
 
     //right
     if (ball.x > canvas.width - ball.width / 2) {
-        ball.x = canvas.width /2
+        ball.x = canvas.width / 2
         ball.y = canvas.height / 2
         ball.vx *= -1
         p1Wins++
-       // ball.rightSide = function () { return ball.x + ball.width / 2 };
+        // ball.rightSide = function () { return ball.x + ball.width / 2 };
     }
 
-  
+
     paddleBoundary(paddle)
     paddleBoundary(paddle2)
 
@@ -229,10 +224,10 @@ function animate() {
             ball.vx *= -1
             ball.vy = 0
         }
-        
+
     }
 
-    ball.drawCircle()
+    // ball.drawCircle()
     paddle.drawRect()
     paddle2.drawRect()
     console.log(paddle.y)
@@ -240,9 +235,9 @@ function animate() {
 
 }
 
-function paddleBoundary(paddle){
+function paddleBoundary(paddle) {
     //boundaries for paddle
-      if (paddle.y > canvas.height - paddle.height / 2) {
+    if (paddle.y > canvas.height - paddle.height / 2) {
         paddle.y = canvas.height - paddle.height / 2
 
 
