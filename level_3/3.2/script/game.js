@@ -5,6 +5,8 @@ var timer
 var ball
 var paddle
 var paddle2
+var p1Wins = 0;
+var p2Wins = 0;
 //var gravity = .05
 //var gravitySpeed=.05
 
@@ -19,24 +21,12 @@ var up = false;
 var down = false;
 
 
-//drawing text 
-
-
 
 //game objects
 ball = new GameObject()
 paddle = new GameObject()
 paddle2 = new GameObject()
 
-// ball.leftSide = function(){return ball.x - ball.width/2};
-// ball.rightSide = function(){return ball.x + ball.width/2};
-// ball.topSide = function(){return ball.y - ball.height/2};
-// ball.bottomSide = function(){return ball.y + ball.height/2};
-
-// paddle.leftSide = function(){return paddle.x - paddle.width/2};
-// paddle.rightSide = function(){return paddle.x + paddle.width/2};
-// paddle.topSide = function(){return paddle.y - paddle.height/2};
-// paddle.bottomSide = function(){return paddle.y + paddle.height/2};
 
 //velocity
 ball.vx = 5;
@@ -109,9 +99,17 @@ function animate() {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
+    //scores
+    ctx.fillStyle = "black"
+    ctx.font = "20px Arial"
+    ctx.textAlign = "center"
+    ctx.fillText("Player 1 | Player 2", canvas.width/2, 40)
+    ctx.fillText(p1Wins, canvas.width/2-21, 60)
+    ctx.fillText('-', canvas.width/2, 60)
+    ctx.fillText(p2Wins, canvas.width/2+21, 60)
 
 
-   
+
 	if(w)
 	{
 		console.log("Moving Up");
@@ -137,8 +135,6 @@ function animate() {
 
 
     ball.moveCircle()
-
-    
   
 
     //boundaries for ball
@@ -160,6 +156,7 @@ function animate() {
         ball.x = canvas.width / 2
         ball.y = canvas.height / 2
         ball.vx *= -1
+        p2Wins ++
        // ball.leftSide = function () { return ball.x - ball.width / 2 };
     }
 
@@ -168,6 +165,7 @@ function animate() {
         ball.x = canvas.width /2
         ball.y = canvas.height / 2
         ball.vx *= -1
+        p1Wins++
        // ball.rightSide = function () { return ball.x + ball.width / 2 };
     }
 
