@@ -74,6 +74,7 @@ function GameObject() {
 		paddle.y += 3;
 	}
        
+	//location of sides boundaries of box
     this.left = function() 
 	{
 		return this.x - this.width/2;
@@ -92,6 +93,7 @@ function GameObject() {
 		return this.y + this.height/2;
 	}
 	
+	//bounding box 
 	this.hitTestObject = function(obj)
 	{
 		if(this.left() < obj.right() && 
