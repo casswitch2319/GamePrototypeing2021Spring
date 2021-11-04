@@ -11,7 +11,7 @@ var timer
 var gravity = 1
 
 var ax = 1
-var friction = .9;
+var friction = .97;
 
 ball.vx = 0
 ball.width = 80
