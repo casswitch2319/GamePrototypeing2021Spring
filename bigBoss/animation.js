@@ -11,7 +11,7 @@ var timer
 var gravity = 1
 
 var ax = 1
-var friction = .85;
+var friction = .9;
 
 ball.vx = 0
 ball.width = 80
@@ -23,6 +23,7 @@ ball.force = 5
 
 //adding accelerations and frictions
 paddle.ax = 1
+
 
 
 
@@ -55,9 +56,13 @@ function animate() {
     }
 
 
+    ball.vx *= friction
+    ball.vy *=friction
+
     //apply gravity
     ball.vy += gravity
 
+    
     //animate ball
     ball.move()
 
@@ -75,6 +80,7 @@ function animate() {
     }
     //friction always gets added not only when pushing 
     paddle.vx *= friction;
+    
 
     paddle.move()
 
