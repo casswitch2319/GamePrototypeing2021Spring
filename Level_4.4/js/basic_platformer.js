@@ -16,7 +16,7 @@ var player;
 		platform0.width = 150;
 		platform0.x = platform0.width/2;
 		platform0.y = canvas.width/2 +player.height/2 + platform0.height/2;
-		platform0.color = "blue";
+		platform0.color = "#66ff33";
 		
 	
 	platform1 = new GameObject();
@@ -94,14 +94,13 @@ function animate()
 	//---------Add to the following condition so that when you hold "s" you climb down through the platform. 
 	
 	
-//add keyboard event here which will make it go down 
-	while(platform1.hitTestPoint(player.bottom()) && player.vy >= 0   )
+
+	while(platform1.hitTestPoint(player.bottom()) && player.vy >=0 )
 	{
 		player.canJump = true;
 		player.y--;
 		player.vy = 0;
 	}
-	
 	
 	
 
