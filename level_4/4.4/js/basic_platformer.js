@@ -95,7 +95,7 @@ function animate()
 	
 	
 //add keyboard event here which will make it go down 
-	while(platform1.hitTestPoint(player.bottom()) && player.vy >= 0   )
+	while(platform1.hitTestPoint(player.bottom()) && player.vy >= 0 && !s)
 	{
 		player.canJump = true;
 		player.y--;
