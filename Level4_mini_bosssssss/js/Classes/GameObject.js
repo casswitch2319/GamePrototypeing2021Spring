@@ -11,24 +11,25 @@ function GameObject(obj)
 		this.ay = 1;
 		this.vx = 0;
 		this.vy = 0;
-
-	//whether or not the object can jump
-	this.canJump = false;
-	this.jumpHeight = -25;
-	
-	//------Allows us to pass object literals into the class to define its properties--------//
+		
+		
+		//------Allows us to pass object literals into the class to define its properties--------//
 		//------This eliminate the need to pass in the property arguments in a specific order------------//
 		if(obj!== undefined)
 		{
 			for(value in obj)
 			{
 				if(this[value]!== undefined)
-				{
-					this[value] = obj[value];
-				}
+				this[value] = obj[value];
 			}
 		}
-		
+	
+	
+	//whether or not the object can jump
+	this.canJump = false;
+	this.jumpHeight = -25;
+	
+
 	this.drawRect = function()
 	{
 		context.save();
@@ -106,7 +107,14 @@ function GameObject(obj)
 	/*-----Sets or gets the radius value--------*/
 	this.radius = function(newRadius)
 	{
+		 if(newRadius==undefined)
+		 {
 			return this.width/2; 
+		 }
+		 else
+		 {
+			 return newRadius;
+		 }
 	}
 	
 	//Draws the collision points
