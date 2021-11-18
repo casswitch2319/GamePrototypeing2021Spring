@@ -74,11 +74,11 @@ function animate()
 	context.clearRect(0,0,canvas.width, canvas.height);	
 	
 
-    //scores player 1 and 2
+    //scores 
     context.fillStyle = "black"
     context.font = "20px Arial"
     context.textAlign = "center"
-    context.fillText("Player Score " + (playerScore + bonusScore), canvas.width/2, 40)
+    context.fillText("Total Score " + (playerScore + bonusScore), canvas.width/2, 40)
     //context.fillText(playe, canvas.width/2, 60)
  
 
@@ -248,9 +248,19 @@ function animate()
 		//playerScore ++;
 		bonusScore += 50 
 		powerup.y = 10000
+
+		
+
 	}
+
+	context.fillStyle = "black"
+	context.font = "20px Arial"
+	context.textAlign = "right"
+	context.fillText("Bonus : " + bonusScore, canvas.width/3, 40)
+
+
 	if(player.hitTestObject(collectabes)){
-		//player score to be added later 
+		
 		playerScore ++;
 	
 		collectabes.y = 10000
