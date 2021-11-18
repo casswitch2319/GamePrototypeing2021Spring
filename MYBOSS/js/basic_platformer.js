@@ -9,6 +9,7 @@ var playerScore = 0
 var bonusScore = 0 
 
 
+
 	canvas = document.getElementById("canvas");
 	context = canvas.getContext("2d");	
 
@@ -52,6 +53,8 @@ var bonusScore = 0
 	goal = new GameObject({width:24, height:50, x:canvas.width-50, y:100, color:"#00ffff"});
 	
 	powerup = new GameObject({width:25, height:25, x:canvas.width/2, y:canvas.height/2, color:"blue"})
+
+	collectabes = new GameObject({width:25, height:25, x:platform1.x , y:550, color:"purple"})
 		
 		
 
@@ -246,6 +249,13 @@ function animate()
 		bonusScore += 50 
 		powerup.y = 10000
 	}
+	if(player.hitTestObject(collectabes)){
+		//player score to be added later 
+		playerScore ++;
+	
+		collectabes.y = 10000
+	}
+
 	
 	
 	platform0.drawRect();
@@ -259,5 +269,7 @@ function animate()
 	player.drawRect();
 	goal.drawCircle();
 	powerup.drawCircle()
+
+	collectabes.drawCircle()
 }
 
